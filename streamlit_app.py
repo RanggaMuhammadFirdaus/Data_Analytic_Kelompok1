@@ -31,13 +31,6 @@ st.dataframe(df_anggota.drop(columns=["No"]), use_container_width=True)  # Menye
 # Menambahkan Gambar atau Logo
 st.image("Logo_Data_Analytics.png", caption="Kelompok Kami", use_container_width=True)
 
-# Menambahkan Deskripsi
-st.markdown("""
-### Tentang Kami
-Kami adalah kelompok yang berdedikasi untuk belajar dan berkolaborasi dalam proyek ini. 
-Kami berharap dapat memberikan kontribusi yang berarti.
-""")
-
 # Menambahkan Footer
 st.markdown("---")
 st.write("© 2024 Kelompok 1")
