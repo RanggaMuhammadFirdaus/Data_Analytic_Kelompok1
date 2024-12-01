@@ -13,16 +13,12 @@ anggota = [
     {"Nama": "Risky Fadillah", "NIM": "210414016"},
 ]
 
-# Menambahkan Kolom Nomor Urut
-for index, member in enumerate(anggota, start=1):
-    member["No"] = index
-
 # Mengubah Data Anggota menjadi DataFrame
 df_anggota = pd.DataFrame(anggota)
 
 # Menampilkan Data Anggota dalam Format Tabel tanpa Indeks
 st.write("### Anggota Kelompok")
-st.dataframe(df_anggota.drop(columns=["No"]), use_container_width=True)  # Menyembunyikan indeks
+st.table(df_anggota)  # Menggunakan st.table() untuk menyembunyikan indeks
 
 # Menambahkan Gambar atau Logo
 st.image("Logo_Data_Analytics.png", caption="Kelompok Kami", use_container_width=True)
