@@ -4,9 +4,6 @@ import pandas as pd
 # Judul Dashboard
 st.title("Dashboard Anggota Kelompok")
 
-# Deskripsi Singkat
-st.write("Berikut adalah daftar anggota kelompok kami:")
-
 # Data Anggota
 anggota = [
     {"Nama": "Rangga Muhammad Firdaus", "NIM": "210414002"},
@@ -17,7 +14,7 @@ anggota = [
 ]
 
 # Menambahkan Kolom Nomor Urut
-for index, member in enumerate(anggota, start=2):
+for index, member in enumerate(anggota, start=1):
     member["No"] = index
 
 # Mengubah Data Anggota menjadi DataFrame
