@@ -29,7 +29,7 @@ st.dataframe(df_anggota.drop(columns=["No"]), use_container_width=True)  # Menye
 st.image("Logo_Data_Analytics.png", caption="Kelompok Kami", use_container_width=True)
 
 # Membaca Data dari File CSV
-data = pd.read_csv("data.csv", parse_dates=["Date"], dayfirst=True)
+data = pd.read_csv("MAPB Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
 # Mengonversi kolom 'Price' dan 'Change %' ke tipe numerik
 data['Price'] = data['Price'].str.replace(',', '').astype(float)
