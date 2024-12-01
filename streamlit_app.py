@@ -17,7 +17,7 @@ anggota = [
 ]
 
 # Menambahkan Kolom Nomor Urut
-for index, member in enumerate(anggota, start=1):
+for index, member in enumerate(anggota, start=2):
     member["No"] = index
 
 # Mengubah Data Anggota menjadi DataFrame
