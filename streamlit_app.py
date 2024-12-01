@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
 # Judul Dashboard
 st.title("Dashboard Anggota Kelompok")
@@ -27,39 +26,6 @@ st.dataframe(df_anggota.drop(columns=["No"]), use_container_width=True)  # Menye
 
 # Menambahkan Gambar atau Logo
 st.image("Logo_Data_Analytics.png", caption="Kelompok Kami", use_container_width=True)
-
-# Judul Dashboard
-st.title("Analisis Data Harga")
-
-# Membaca Data dari File CSV
-data = pd.read_csv("data.csv", parse_dates=["Date"], dayfirst=True)
-
-# Menampilkan Data
-st.write("### Data Harga")
-st.dataframe(data)
-
-# Mengonversi kolom 'Price' dan 'Change %' ke tipe numerik
-data['Price'] = data['Price'].str.replace(',', '').astype(float)
-data['Change %'] = data['Change %'].str.replace('%', '').astype(float)
-
-# Membuat Grafik Harga
-fig, ax = plt.subplots()
-ax.plot(data['Date'], data['Price'], marker='o', linestyle='-')
-ax.set_title('Pergerakan Harga dari Waktu ke Waktu')
-ax.set_xlabel('Tanggal')
-ax.set_ylabel('Harga')
-ax.grid()
-
-# Menampilkan Grafik
-st.pyplot(fig)
-
-# Insight
-with st.expander("Lihat Insight"):
-    st.write(
-        f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}\n"
-        f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}\n"
-        f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
-    )
 
 # Menambahkan Footer
 st.markdown("---")
