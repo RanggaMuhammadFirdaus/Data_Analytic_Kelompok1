@@ -52,7 +52,7 @@ st.pyplot(fig)
 # Insight
 with st.expander("Lihat Insight"):
     st.write(
-        f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date']\n[data['Price'].idxmax()].date()}\n"
+        f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}\n\n"
         f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}\n"
         f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
     )
