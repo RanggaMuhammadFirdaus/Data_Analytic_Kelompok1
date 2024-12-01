@@ -56,10 +56,10 @@ with st.expander("Lihat Insight"):
     )
 
 # Judul untuk Dataset
-st.title("Dataset MAPB Historical Data")
+st.title("Dataset FAST Historical Data")
 
 # Membaca Data dari File CSV
-data = pd.read_csv("MAPB_Historical_Data.csv", parse_dates=["Date"], dayfirst=True)
+data = pd.read_csv("FAST Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
 # Mengonversi kolom 'Price' dan 'Change %' ke tipe numerik
 data['Price'] = data['Price'].str.replace(',', '').astype(float)
