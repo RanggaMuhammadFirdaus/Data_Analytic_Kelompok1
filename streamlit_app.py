@@ -86,6 +86,35 @@ with st.expander("Lihat Insight FAST"):
         f"**Perubahan Harga Rata-rata FAST:** {data_fast['Change %'].mean():.2f}%"
     )
 
+# Judul untuk Dataset FAST Historical Data
+st.title("Dataset PZZA Historical Data")
+
+# Membaca Data dari File CSV
+data_fast = pd.read_csv("PZZA Historical Data.csv", parse_dates=["Date"], dayfirst=True)
+
+# Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
+data_fast['Price'] = data_fast['Price'].astype(str).str.replace(',', '').astype(float)
+data_fast['Change %'] = data_fast['Change %'].str.replace('%', '').astype(float)
+
+# Membuat Grafik Harga untuk FAST
+fig, ax = plt.subplots()
+ax.plot(data_fast['Date'], data_fast['Price'], marker='o', linestyle='-')
+ax.set_title('Pergerakan Harga FAST dari Waktu ke Waktu')
+ax.set_xlabel('Tanggal')
+ax.set_ylabel('Harga')
+ax.grid()
+
+# Menampilkan Grafik
+st.pyplot(fig)
+
+# Insight untuk FAST
+with st.expander("Lihat Insight PZZA"):
+    st.write(
+        f"**Harga Tertinggi FAST:** {data_fast['Price'].max()} pada {data_fast['Date'][data_fast['Price'].idxmax()].date()}\n"
+        f"**Harga Terendah FAST:** {data_fast['Price'].min()} pada {data_fast['Date'][data_fast['Price'].idxmin()].date()}\n"
+        f"**Perubahan Harga Rata-rata FAST:** {data_fast['Change %'].mean():.2f}%"
+    )
+
 # Menambahkan Footer
 st.markdown("---")
 st.write("© 2024 Kelompok 1")
