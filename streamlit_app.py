@@ -51,7 +51,7 @@ st.pyplot(fig)
 
 # Insight
 with st.expander("Lihat Insight"):
-    st.markdown(
+    st.write(
         f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}<br>"
         f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}<br>"
         f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
