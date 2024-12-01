@@ -53,7 +53,7 @@ st.pyplot(fig)
 with st.expander("Lihat Insight"):
     st.write(
         f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}\n\n"
-        f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}\n"
+        f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}\n\n"
         f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
     )
 
@@ -81,8 +81,8 @@ st.pyplot(fig)
 # Insight untuk FAST
 with st.expander("Lihat Insight FAST"):
     st.write(
-        f"**Harga Tertinggi FAST:** {data_fast['Price'].max()} pada {data_fast['Date'][data_fast['Price'].idxmax()].date()}\n"
-        f"**Harga Terendah FAST:** {data_fast['Price'].min()} pada {data_fast['Date'][data_fast['Price'].idxmin()].date()}\n"
+        f"**Harga Tertinggi FAST:** {data_fast['Price'].max()} pada {data_fast['Date'][data_fast['Price'].idxmax()].date()}\n\n"
+        f"**Harga Terendah FAST:** {data_fast['Price'].min()} pada {data_fast['Date'][data_fast['Price'].idxmin()].date()}\n\n"
         f"**Perubahan Harga Rata-rata FAST:** {data_fast['Change %'].mean():.2f}%"
     )
 
@@ -110,8 +110,8 @@ st.pyplot(fig)
 # Insight untuk PZZA
 with st.expander("Lihat Insight PZZA"):
     st.write(
-        f"**Harga Tertinggi PZZA:** {data_pzza['Price'].max()} pada {data_pzza['Date'][data_pzza['Price'].idxmax()].date()}\n"
-        f"**Harga Terendah PZZA:** {data_pzza['Price'].min()} pada {data_pzza['Date'][data_pzza['Price'].idxmin()].date()}\n"
+        f"**Harga Tertinggi PZZA:** {data_pzza['Price'].max()} pada {data_pzza['Date'][data_pzza['Price'].idxmax()].date()}\n\n"
+        f"**Harga Terendah PZZA:** {data_pzza['Price'].min()} pada {data_pzza['Date'][data_pzza['Price'].idxmin()].date()}\n\n"
         f"**Perubahan Harga Rata-rata PZZA:** {data_pzza['Change %'].mean():.2f}%"
     )
 
@@ -139,8 +139,8 @@ st.pyplot(fig)
 # Insight untuk UNVR
 with st.expander("Lihat Insight UNVR"):
     st.write(
-        f"**Harga Tertinggi UNVR:** {data_unvr['Price'].max()} pada {data_unvr['Date'][data_unvr['Price'].idxmax()].date()}\n"
-        f"**Harga Terendah UNVR:** {data_unvr['Price'].min()} pada {data_unvr['Date'][data_unvr['Price'].idxmin()].date()}\n"
+        f"**Harga Tertinggi UNVR:** {data_unvr['Price'].max()} pada {data_unvr['Date'][data_unvr['Price'].idxmax()].date()}\n\n"
+        f"**Harga Terendah UNVR:** {data_unvr['Price'].min()} pada {data_unvr['Date'][data_unvr['Price'].idxmin()].date()}\n\n"
         f"**Perubahan Harga Rata-rata UNVR:** {data_unvr['Change %'].mean():.2f}%"
     )
 
