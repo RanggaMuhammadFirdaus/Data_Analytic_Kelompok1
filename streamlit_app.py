@@ -28,12 +28,14 @@ st.dataframe(df_anggota.drop(columns=["No"]), use_container_width=True)  # Menye
 # Menambahkan Gambar atau Logo
 st.image("Logo_Data_Analytics.png", caption="Kelompok Kami", use_container_width=True)
 
+# Judul untuk Dataset
 st.title("Dataset MAPB Historical Data")
+
 # Membaca Data dari File CSV
 data = pd.read_csv("MAPB Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
-# Mengonversi kolom 'Price' dan 'Change %' ke tipe numerik
-data['Price'] = data['Price'].str.replace(',', '').astype(float)
+# Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
+data['Price'] = data['Price'].astype(str).str.replace(',', '').astype(float)
 data['Change %'] = data['Change %'].str.replace('%', '').astype(float)
 
 # Membuat Grafik Harga
@@ -55,18 +57,20 @@ with st.expander("Lihat Insight"):
         f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
     )
 
+# Judul untuk Dataset FAST Historical Data
 st.title("Dataset FAST Historical Data")
+
 # Membaca Data dari File CSV
-data = pd.read_csv("FAST Historical Data.csv", parse_dates=["Date"], dayfirst=True)
+data_fast = pd.read_csv("FAST Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
-# Mengonversi kolom 'Price' dan 'Change %' ke tipe numerik
-data['Price'] = data['Price'].str.replace(',', '').astype(float)
-data['Change %'] = data['Change %'].str.replace('%', '').astype(float)
+# Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
+data_fast['Price'] = data_fast['Price'].astype(str).str.replace(',', '').astype(float)
+data_fast['Change %'] = data_fast['Change %'].str.replace('%', '').astype(float)
 
-# Membuat Grafik Harga
+# Membuat Grafik Harga untuk FAST
 fig, ax = plt.subplots()
-ax.plot(data['Date'], data['Price'], marker='o', linestyle='-')
-ax.set_title('Pergerakan Harga dari Waktu ke Waktu')
+ax.plot(data_fast['Date'], data_fast['Price'], marker='o', linestyle='-')
+ax.set_title('Pergerakan Harga FAST dari Waktu ke Waktu')
 ax.set_xlabel('Tanggal')
 ax.set_ylabel('Harga')
 ax.grid()
@@ -74,14 +78,13 @@ ax.grid()
 # Menampilkan Grafik
 st.pyplot(fig)
 
-# Insight
-with st.expander("Lihat Insight"):
+# Insight untuk FAST
+with st.expander("Lihat Insight FAST"):
     st.write(
-        f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}\n"
-        f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}\n"
-        f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
+        f"**Harga Tertinggi FAST:** {data_fast['Price'].max()} pada {data_fast['Date'][data_fast['Price'].idxmax()].date()}\n"
+        f"**Harga Terendah FAST:** {data_fast['Price'].min()} pada {data_fast['Date'][data_fast['Price'].idxmin()].date()}\n"
+        f"**Perubahan Harga Rata-rata FAST:** {data_fast['Change %'].mean():.2f}%"
     )
-
 
 # Menambahkan Footer
 st.markdown("---")
