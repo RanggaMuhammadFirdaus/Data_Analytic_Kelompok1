@@ -85,6 +85,36 @@ with st.expander("Lihat Insight FAST"):
         f"**Harga Terendah FAST:** {data_fast['Price'].min()} pada {data_fast['Date'][data_fast['Price'].idxmin()].date()}\n"
         f"**Perubahan Harga Rata-rata FAST:** {data_fast['Change %'].mean():.2f}%"
     )
+
+# Judul untuk Dataset PZZA Historical Data
+st.title("Dataset PZZA Historical Data")
+
+# Membaca Data dari File CSV
+data_fast = pd.read_csv("PZZA Historical Data.csv", parse_dates=["Date"], dayfirst=True)
+
+# Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
+data_pzza['Price'] = data_pzza['Price'].astype(str).str.replace(',', '').astype(float)
+data_pzza['Change %'] = data_pzza['Change %'].str.replace('%', '').astype(float)
+
+# Membuat Grafik Harga untuk PZZA
+fig, ax = plt.subplots()
+ax.plot(data_pzza['Date'], data_pzza['Price'], marker='o', linestyle='-')
+ax.set_title('Pergerakan Harga PZZA dari Waktu ke Waktu')
+ax.set_xlabel('Tanggal')
+ax.set_ylabel('Harga')
+ax.grid()
+
+# Menampilkan Grafik
+st.pyplot(fig)
+
+# Insight untuk PZZA
+with st.expander("Lihat Insight PZZA"):
+    st.write(
+        f"**Harga Tertinggi PZZA:** {data_pzza['Price'].max()} pada {data_pzza['Date'][data_pzza['Price'].idxmax()].date()}\n"
+        f"**Harga Terendah PZZA:** {data_pzza['Price'].min()} pada {data_pzza['Date'][data_pzza['Price'].idxmin()].date()}\n"
+        f"**Perubahan Harga Rata-rata PZZA:** {data_pzza['Change %'].mean():.2f}%"
+    )
+
 # Menambahkan Footer
 st.markdown("---")
 st.write("© 2024 Kelompok 1")
