@@ -93,8 +93,8 @@ st.title("Dataset PZZA Historical Data")
 data_fast = pd.read_csv("PZZA Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
 # Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
-data_pzza['Price'] = data_pzza['Price'].astype(str).str.replace(',', pzzaastype(float)
-data_pzza['Change %'] = data_pzza['Change %'].str.replace('%', '').astyppzza(float)pzza Membuat Grafik Harga untuk PZZA
+data_pzza['Price'] = data_pzza['Price'].astype(str).str.replace(',', '').astype(float)
+data_pzza['Change %'] = data_pzza['Change %'].str.replace('%', '').astype(float)
 fig, ax = plt.subplots()
 ax.plot(data_pzza['Date'], data_pzza['Price'], marker='o', linestyle='-')
 ax.set_title('Pergerakan Harga PZZA dari Waktu ke Waktu')
