@@ -21,7 +21,6 @@ for index, member in enumerate(anggota, start=1):
 df_anggota = pd.DataFrame(anggota)
 
 # Menampilkan Data Anggota dalam Format Tabel tanpa Indeks
-st.subheader("Daftar Anggota")
 st.write("### Anggota Kelompok")
 st.dataframe(df_anggota.drop(columns=["No"]), use_container_width=True)  # Menyembunyikan indeks
 
