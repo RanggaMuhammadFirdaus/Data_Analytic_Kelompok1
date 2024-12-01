@@ -28,7 +28,7 @@ st.dataframe(df_anggota.drop(columns=["No"]), use_container_width=True)  # Menye
 # Menambahkan Gambar atau Logo
 st.image("Logo_Data_Analytics.png", caption="Kelompok Kami", use_container_width=True)
 
-Dataset MAPB Historical Data
+st.title("Dataset MAPB Historical Data")
 # Membaca Data dari File CSV
 data = pd.read_csv("MAPB Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
