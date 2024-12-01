@@ -52,11 +52,10 @@ st.pyplot(fig)
 # Insight
 with st.expander("Lihat Insight"):
     st.write(
-        f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}<br>"
-        f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}<br>"
+        f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}\n"
+        f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}\n"
         f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
     )
-
 
 # Judul untuk Dataset FAST Historical Data
 st.title("Dataset FAST Historical Data")
