@@ -1,4 +1,4 @@
-import streamlit as st
+mport streamlit as st
 import pandas as pd
 
 # Judul Dashboard
@@ -13,12 +13,16 @@ anggota = [
     {"Nama": "Risky Fadillah", "NIM": "210414016"},
 ]
 
+# Menambahkan Kolom Nomor Urut
+for index, member in enumerate(anggota, start=1):
+    member["No"] = index
+
 # Mengubah Data Anggota menjadi DataFrame
 df_anggota = pd.DataFrame(anggota)
 
 # Menampilkan Data Anggota dalam Format Tabel tanpa Indeks
 st.write("### Anggota Kelompok")
-st.table(df_anggota)  # Menggunakan st.table() untuk menyembunyikan indeks
+st.dataframe(df_anggota.drop(columns=["No"]), use_container_width=True)  # Menyembunyikan indeks
 
 # Menambahkan Gambar atau Logo
 st.image("Logo_Data_Analytics.png", caption="Kelompok Kami", use_container_width=True)
