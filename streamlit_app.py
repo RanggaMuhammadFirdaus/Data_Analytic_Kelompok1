@@ -81,8 +81,10 @@ st.pyplot(fig)
 # Insight untuk FAST
 with st.expander("Lihat Insight FAST"):
     st.write(
-        f"**Harga Tertinggi FAST:** {data_fast['Price'].max()} pada {data_fast['Date'][data_fast['Price'].idxmax()].date()}\n"
-        f"**Harga Terendah FAST:** {data_fast['Price'].min()} pada {data_fast['Date'][data_fast['Price'].idxmin()].date()}\n"
+        f"**Harga Tertinggi FAST:** {data_fast['Price'].max()} pada {data_fast['Date']
+                                                                     [data_fast['Price'].idxmax()].date()}\n"
+        f"**Harga Terendah FAST:** {data_fast['Price'].min()} pada {data_fast['Date']
+                                                                    [data_fast['Price'].idxmin()].date()}\n"
         f"**Perubahan Harga Rata-rata FAST:** {data_fast['Change %'].mean():.2f}%"
     )
 
