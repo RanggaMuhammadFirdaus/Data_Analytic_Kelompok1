@@ -55,6 +55,36 @@ with st.expander("Lihat Insight"):
         f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
     )
 
+# Judul untuk Dataset
+st.title("Dataset MAPB Historical Data")
+
+# Membaca Data dari File CSV
+data = pd.read_csv("MAPB_Historical_Data.csv", parse_dates=["Date"], dayfirst=True)
+
+# Mengonversi kolom 'Price' dan 'Change %' ke tipe numerik
+data['Price'] = data['Price'].str.replace(',', '').astype(float)
+data['Change %'] = data['Change %'].str.replace('%', '').astype(float)
+
+# Membuat Grafik Harga
+fig, ax = plt.subplots()
+ax.plot(data['Date'], data['Price'], marker='o', linestyle='-')
+ax.set_title('Pergerakan Harga dari Waktu ke Waktu')
+ax.set_xlabel('Tanggal')
+ax.set_ylabel('Harga')
+ax.grid()
+
+# Menampilkan Grafik
+st.pyplot(fig)
+
+# Insight
+with st.expander("Lihat Insight"):
+    st.write(
+        f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}\n"
+        f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}\n"
+        f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
+    )
+
+
 # Menambahkan Footer
 st.markdown("---")
 st.write("© 2024 Kelompok 1")
