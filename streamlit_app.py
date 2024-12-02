@@ -93,7 +93,7 @@ st.title("Dataset PZZA Historical Data")
 data_unvr = pd.read_csv("PZZA Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
 # Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
-data_unvr['Price'] = data_unvr['Price'].astype(str).str.replace(',', '').astype(float)
+data_pzza['Price'] = data_pzza['Price'].astype(str).str.replace(',', '').astype(float)
 data_pzza['Change %'] = data_pzza['Change %'].str.replace('%', '').astype(float)
 
 # Membuat Grafik Harga untuk PZZA
