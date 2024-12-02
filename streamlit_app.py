@@ -129,25 +129,6 @@ data_unvr['Change %'] = data_unvr['Change %'].str.replace('%', '').astype(float)
 
 # Menampilkan Grafik
 st.pyplot(fig)
-
-# Insight untuk PZZA
-with st.expander("Lihat Insight UNVR"):
-    # Menghitung harga tertinggi dan terendah
-    harga_tertinggi = data_unvr['Price'].max()
-    tanggal_tertinggi = data_unvr['Date'][data_unvr['Price'].idxmax()].date()
-    
-    harga_terendah = data_unvr['Price'].min()
-    tanggal_terendah = data_unvr['Date'][data_unvr['Price'].idxmin()].date()
-    
-    # Menghitung perubahan harga rata-rata
-    perubahan_rata_rata = data_unvr['Change %'].mean()
-    
-    # Menampilkan insight
-    st.write(
-        f"**Harga Tertinggi UNVR:** {harga_tertinggi} pada {tanggal_tertinggi}\n\n"
-        f"**Harga Terendah UNVR:** {harga_terendah} pada {tanggal_terendah}\n\n"
-        f"**Perubahan Harga Rata-rata UNVR:** {perubahan_rata_rata:.2f}%"
-    )
     
 # Membaca Data dari File CSV
 data_unvr = pd.read_csv("UNVR Historical Data.csv", parse_dates=["Date"], dayfirst=True)
