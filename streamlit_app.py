@@ -90,7 +90,7 @@ with st.expander("Lihat Insight FAST"):
 st.title("Dataset PZZA Historical Data")
 
 # Membaca Data dari File CSV
-data_unvr = pd.read_csv("PZZA Historical Data.csv", parse_dates=["Date"], dayfirst=True)
+data_pzza = pd.read_csv("PZZA Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
 # Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
 data_pzza['Price'] = data_pzza['Price'].astype(str).str.replace(',', '').astype(float)
