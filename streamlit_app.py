@@ -144,6 +144,47 @@ with st.expander("Lihat Insight UNVR"):
         f"**Perubahan Harga Rata-rata UNVR:** {data_unvr['Change %'].mean():.2f}%"
     )
 
+# Judul Dashboard
+st.title("Dashboard Penjualan Produk")
+
+# Data Penjualan Produk (Contoh)
+produk = {
+    'Denim': 500,
+    'Joggers': 400,
+    'Pleated': 350,
+    'Casual Slim Fit': 300,
+    'Shearling': 250,
+    'Mandarin Collar': 50,
+    'Dress': 40,
+    'Cords': 30,
+    'Wool': 20,
+    'Cuban Collar': 10
+}
+
+# Mengonversi ke DataFrame
+df_produk = pd.DataFrame(list(produk.items()), columns=['Product', 'Number of Sales'])
+
+# Memisahkan produk terbaik dan terburuk
+best_performing = df_produk.nlargest(5, 'Number of Sales')
+worst_performing = df_produk.nsmallest(5, 'Number of Sales')
+
+# Membuat Chart
+fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+
+# Chart untuk Produk Terbaik
+ax[0].barh(best_performing['Product'], best_performing['Number of Sales'], color='skyblue')
+ax[0].set_title('Best Performing Product')
+ax[0].set_xlabel('Number of Sales')
+
+# Chart untuk Produk Terburuk
+ax[1].barh(worst_performing['Product'], worst_performing['Number of Sales'], color='salmon')
+ax[1].set_title('Worst Performing Product')
+ax[1].set_xlabel('Number of Sales')
+
+plt.tight_layout()
+
+# Menampilkan Grafik di Streamlit
+st.pyplot(fig)
 
 # Menambahkan Footer
 st.markdown("---")
