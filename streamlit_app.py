@@ -115,49 +115,7 @@ with st.expander("Lihat Insight PZZA"):
         f"**Perubahan Harga Rata-rata PZZA:** {data_pzza['Change %'].mean():.2f}%"
     )
 
-# Judul untuk Dataset UNVR Historical Data
-st.title("Dataset UNVR Historical Data")
 
-# Membaca Data dari File CSV
-data_unvr = pd.read_csv("UNVR Historical Data.csv", parse_dates=["Date"], dayfirst=True)
-
-# Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
-data_unvr['Price'] = data_unvr['Price'].astype(str).str.replace(',', '').astype(float)
-data_unvr['Change %'] = data_unvr['Change %'].str.replace('%', '').astype(float)
-
-# Menampilkan Grafik
-st.pyplot(fig)
-
-with st.expander("Lihat Insight UNVR"):
-    st.write(
-        f"**Harga Tertinggi UNVR:** {data_unvr['Price'].max()} pada {data_unvr['Date'][data_unvr['Price'].idxmax()].date()}\n\n"
-        f"**Harga Terendah UNVR:** {data_unvr['Price'].min()} pada {data_unvr['Date'][data_unvr['Price'].idxmin()].date()}\n\n"
-        f"**Perubahan Harga Rata-rata UNVR:** {data_unvr['Change %'].mean():.2f}%"
-    )
-
-
-#Menampilkan bar chart horizontal
-# Membaca Data dari File CSV
-data_unvr = pd.read_csv("UNVR Historical Data.csv", parse_dates=["Date"], dayfirst=True)
-
-# Memastikan kolom 'Price' adalah string sebelum melakukan penggantian
-data_unvr['Price'] = data_unvr['Price'].astype(str).str.replace(',', '').astype(float)
-data_unvr['Change %'] = data_unvr['Change %'].str.replace('%', '').astype(float)
-
-# Menghitung rata-rata harga per bulan
-data_unvr['Month'] = data_unvr['Date'].dt.to_period('M')
-average_price_per_month = data_unvr.groupby('Month')['Price'].mean().reset_index()
-
-# Membuat Bar Chart Horizontal
-fig, ax = plt.subplots()
-ax.barh(average_price_per_month['Month'].astype(str), average_price_per_month['Price'], color='skyblue')
-ax.set_title('Rata-rata Harga UNVR per Bulan')
-ax.set_xlabel('Harga Rata-rata')
-ax.set_ylabel('Bulan')
-ax.grid(axis='x')
-
-# Menampilkan Grafik
-st.pyplot(fig)
 
 # Menambahkan Footer
 st.markdown("---")
