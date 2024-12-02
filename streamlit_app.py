@@ -145,15 +145,6 @@ with st.expander("Lihat Insight UNVR"):
     )
 # Menampilkan Grafik
 st.pyplot(fig)
-
-# Insight untuk UNVR
-with st.expander("Lihat Insight UNVR"):
-    st.write(
-        f"**Harga Tertinggi UNVR:** {data_unvr['Price'].max()} pada {data_unvr['Date'][data_unvr['Price'].idxmax()].date()}\n\n"
-        f"**Harga Terendah UNVR:** {data_unvr['Price'].min()} pada {data_unvr['Date'][data_unvr['Price'].idxmin()].date()}\n\n"
-        f"**Perubahan Harga Rata-rata UNVR:** {data_unvr['Change %'].mean():.2f}%"
-    )
-
 # Membaca Data dari File CSV
 data_unvr = pd.read_csv("UNVR Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
