@@ -125,6 +125,14 @@ data_unvr = pd.read_csv("UNVR Historical Data.csv", parse_dates=["Date"], dayfir
 data_unvr['Price'] = data_unvr['Price'].astype(str).str.replace(',', '').astype(float)
 data_unvr['Change %'] = data_unvr['Change %'].str.replace('%', '').astype(float)
 
+with st.expander("Lihat Insight"):
+    st.write(
+        f"**Harga Tertinggi:** {data['Price'].max()} pada {data['Date'][data['Price'].idxmax()].date()}\n\n"
+        f"**Harga Terendah:** {data['Price'].min()} pada {data['Date'][data['Price'].idxmin()].date()}\n\n"
+        f"**Perubahan Harga Rata-rata:** {data['Change %'].mean():.2f}%"
+    )
+
+
 
 # Menampilkan Grafik
 st.pyplot(fig)
