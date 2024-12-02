@@ -125,11 +125,18 @@ data_unvr = pd.read_csv("UNVR Historical Data.csv", parse_dates=["Date"], dayfir
 data_unvr['Price'] = data_unvr['Price'].astype(str).str.replace(',', '').astype(float)
 data_unvr['Change %'] = data_unvr['Change %'].str.replace('%', '').astype(float)
 
-
-
 # Menampilkan Grafik
 st.pyplot(fig)
-    
+
+with st.expander("Lihat Insight UNVR"):
+    st.write(
+        f"**Harga Tertinggi UNVR:** {data_unvr['Price'].max()} pada {data_unvr['Date'][data_unvr['Price'].idxmax()].date()}\n\n"
+        f"**Harga Terendah UNVR:** {data_unvr['Price'].min()} pada {data_unvr['Date'][data_unvr['Price'].idxmin()].date()}\n\n"
+        f"**Perubahan Harga Rata-rata UNVR:** {data_unvr['Change %'].mean():.2f}%"
+    )
+
+
+#Menampilkan bar chart horizontal
 # Membaca Data dari File CSV
 data_unvr = pd.read_csv("UNVR Historical Data.csv", parse_dates=["Date"], dayfirst=True)
 
