@@ -150,26 +150,6 @@ ax.grid(axis='x')
 # Menampilkan Grafik
 st.pyplot(fig)
 
-# Mengubah tipe data kolom harga menjadi numerik
-# Mengganti koma dengan titik dan mengubah tipe data ke float
-merged_data['Price_KFC'] = merged_data['Price_KFC'].astype(str).str.replace(',', '.').astype(float)
-merged_data['Price_PZZA'] = merged_data['Price_PZZA'].astype(str).str.replace(',', '.').astype(float)
-merged_data['Price_UNVR'] = merged_data['Price_UNVR'].astype(str).str.replace(',', '.').astype(float)
-merged_data['Price_MAPB'] = merged_data['Price_MAPB'].astype(str).str.replace(',', '.').astype(float)
-
-# Menghitung korelasi antar harga penutupan saham
-correlation_matrix = merged_data[['Price_KFC', 'Price_PZZA', 'Price_UNVR', 'Price_MAPB']].corr()
-
-# Menampilkan matriks korelasi
-print("Matriks Korelasi:")
-print(correlation_matrix)
-
-# Visualisasi korelasi menggunakan heatmap
-plt.figure(figsize=(8, 6))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
-plt.title("Korelasi Antar Saham Perusahaan")
-plt.show()
-
 # Menambahkan Footer
 st.markdown("---")
 st.write("© 2024 Kelompok 1")
